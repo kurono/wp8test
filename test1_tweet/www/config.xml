@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+	xmlns:gap="http://phonegap.com/ns/1.0"
+	id="com.kurono.wptest1"
+	version="1.0.0">
+
+	<name>wp8 tweets</name>
+
+	<description>
+		wp8 test1 tweets
+	</description>
+
+	<author href="https://github.com/kurono/" email="">
+		kurono
+	</author>
+
+	<gap:platforms>
+		<gap:platform name="android" minVersion="2.1" />
+		<gap:platform name="winphone" />
+	</gap:platforms>
+
+	<icon src="res/icon.png" gap:role="default" />
+
+    <gap:splash src="res/splash.jpg" />
+
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+	<!-- sample preference specification -->
+	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>
