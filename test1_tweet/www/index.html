@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=480, height=800, user-scalable=no" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+  <title>PhoneGap WP8</title>
+
+  <link rel="stylesheet" href="css/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />  
+
+  <script type="text/javascript" charset="utf-8" src="js/lib/cordova-1.5.0.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/lib/jquery-1.6.4.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/lib/jquery.tmpl.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/lib/knockout-2.0.0.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/viewModel/ApplicationViewModel.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/viewModel/TweetViewModel.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/viewModel/TwitterSearchViewModel.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/viewModel/SearchResultsViewModel.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+</head>
+<body>
+
+  <script type=text/x-jquery-tmpl" charset="utf-8" id="twitterSearchView">
+    <div>
+      <form data-bind="submit: search">
+        <input type="text"
+               data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+        <button type="submit"
+                data-bind="enable: searchTerm().length > 0 && isSearching() == false">Go</button>  
+      </form>      
+
+      <p class="userMessage"
+         data-bind="text:userMessage"/>
+
+      <h2 data-bind="visible: recentSearches().length > 0">Recent Searches</h2>
+      <ul data-bind="template: {name: 'recentSearchTermView',
+                                foreach: recentSearches}"> </ul>
+    </div>
+  </script>
+
+  <script type=text/x-jquery-tmpl" charset="utf-8" id="recentSearchTermView">
+    <li><span data-bind="text: $data,
+                         click: $parent.recentSearchClicked"/></li>
+  </script>
+
+  <script type=text/x-jquery-tmpl" charset="utf-8" id="searchResultsView">
+    <div>
+      <ul data-bind="template: {name: 'tweetView',
+                                foreach: tweets}"> </ul>
+    </div>
+  </script>
+
+  <script type="text/x-jquery-tmpl" charset="utf-8" id="tweetView">
+    <li class="tweet"
+        data-bind="click: select">
+      <div class="thumbnailColumn">
+        <img data-bind="attr: { src: thumbnail }"
+                                class="thumbnail"/>
+      </div>
+      <div class="detailsColumn">
+        <div class="author"
+             data-bind="text: author"/> 
+        <div class="text"
+             data-bind="text: text"/> 
+        <div class="time"
+             data-bind="text: time"/> 
+      </div>
+    </li>
+  </script>
+
+  <script type="text/x-jquery-tmpl" charset="utf-8" id="tweetDetailView">
+    <div class="tweet detailView">
+      <div class="thumbnailColumn">
+        <img data-bind="attr: { src: thumbnail }"
+             class="thumbnail"/>
+      </div>
+      <div class="detailsColumn">
+        <div class="author" data-bind="text: author"/> 
+        <div class="text" data-bind="text: text"/> 
+        <div class="time" data-bind="text: time"/> 
+      </div>
+    </div>
+  </script>
+
+  <h1>Cordova Twitter Search</h1>
+
+  <div class="app"
+       data-bind="template: {name: templateSelector,
+                             foreach: viewModelBackStack}">
+  </div>
+</body>
+</html>

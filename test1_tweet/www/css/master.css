@@ -1,0 +1,118 @@
+/* Application styling */
+
+.app>div 
+{
+  display: none;
+}
+
+.app>*:last-child 
+{
+  display: block;
+}
+
+
+/* results style */
+.thumbnailColumn
+{
+  float: left;
+  margin-right: 10px;
+}
+
+.thumbnail
+{
+  width: 60px;
+  height: 60px;
+  border: 1px solid white;
+}
+
+.detailsColumn
+{
+  overflow: hidden;
+  width: 370px;
+}
+
+li.tweet 
+{
+  list-style-type: none;
+  clear:both;
+  margin-bottom: 5px;
+}
+
+.tweet div {
+    font-size: 18px;
+}
+
+.tweet .author {
+    color: green;
+}
+
+.tweet .time {
+    color: #666;
+}
+
+div.detailView.tweet div
+{
+  font-size: 30px;
+}
+
+
+/* WP7 styling! */
+
+body
+{
+  background: #000 none repeat scroll 0 0;
+  color: #ccc;
+  font-family: Segoe WP, sans-serif;
+}
+
+body, input, div
+{
+  font-size: 22.667px; /* PhoneFontSizeMedium */
+}
+
+h2
+{
+  font-weight: normal;
+  font-size: 32px; /* PhoneFontSizeLarge */
+}
+
+h1
+{
+  font-weight: normal;
+  font-size: 42.667px; /* PhoneFontSizeExtraLarge */
+}
+
+button
+{
+  background: black;
+  color: white;
+  border-color: white;
+  border-style: solid;
+  padding: 4px 10px;
+  border-width: 3px; /* PhoneBorderThickness */
+  font-size: 25.333px; /* PhoneFontSizeMediumLarge */
+}
+
+button:disabled
+{
+  color: #999;
+  border-color: #999;
+}
+
+input[type="button"]:active, input[type="submit"]:active
+{
+  background: white;
+  color: black;
+}
+
+input[type="text"]
+{
+  width: 150px;
+  height: 34px;
+  padding: 4px;
+}
+
+ul {
+    padding: 0;
+}
+
